@@ -1,0 +1,12 @@
+#USE AND EXISTING IMAGE AS BASE
+FROM node:alpine
+
+WORKDIR /app
+
+#DOWNLOAD AND INSTALL A DEPENDENCY
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
+#TELL THE IMAGE WHAT TO DO WHEN IT STARTS AS A CONTAINER
+CMD ["npm","run","start"]
